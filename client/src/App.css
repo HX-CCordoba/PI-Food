@@ -215,6 +215,10 @@ a {
 .paginate ul li {
   padding: 1rem;
   border-radius: 20%;
+  transition: transform 0.5s;
+}
+.paginate ul li:hover {
+  transform: scale(1.05);
 }
 .paginate ul li a {
   font-size: 20px;
@@ -247,7 +251,7 @@ a {
 .recipeDetail .detailCard .presentation {
   display: block;
   margin: auto;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: rgba(255, 251, 196, 0.726);
   border-radius: 8%;
   text-align: center;
@@ -301,7 +305,7 @@ a {
 }
 .recipeDetail .detailCard .presentation img:hover {
   box-shadow: none;
-  border-radius: 30%;
+  border-radius: none;
   transform: scale(1.1);
   cursor: auto;
 }
@@ -318,6 +322,31 @@ a {
   transition: transform 0.5s;
 }
 .recipeDetail .detailCard .description p:hover {
+  box-shadow: none;
+  border-radius: none;
+  transform: scale(1.1);
+  cursor: auto;
+}
+.stepsDetail {
+  margin: 1rem 4rem;
+  background-color: rgba(240, 248, 255, 0.815);
+  border-radius: 10%;
+  padding: 1rem;
+}
+.stepsDetail h3 {
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 700;
+  margin-left: 2rem;
+}
+.stepsDetail .list {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}
+.stepsDetail .list .step {
+  transition: transform 0.5s;
+}
+.stepsDetail .list .step:hover {
   box-shadow: none;
   border-radius: none;
   transform: scale(1.1);

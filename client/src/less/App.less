@@ -232,6 +232,11 @@ a{
         li{
             padding: 1rem;
             border-radius: 20%;
+            transition: transform 0.5s;
+            &:hover{
+                transform: scale(1.05);
+                
+            }
             a{
                 font-size: 20px;
                 text-decoration: none;
@@ -272,7 +277,7 @@ a{
         .presentation {
             display: block;
             margin: auto;
-            padding: 1rem;
+            padding: 1rem 2rem;
             background-color: rgba(255, 251, 196, 0.726);
             border-radius: 8%;
             text-align: center;
@@ -311,7 +316,7 @@ a{
                 max-width: 100%;
                 max-height: 90%;
                 border-radius: 20%;
-                .transitions(none, 30%, auto);
+                .transitions(none, none, auto);
             }
         }
         .description {
@@ -332,7 +337,26 @@ a{
     }
 }
 
+.stepsDetail {
+    margin: 1rem 4rem;
+    background-color: rgba(240, 248, 255, 0.815);
+    border-radius: 10%;
+    padding: 1rem;
+    h3 {
+        font-family: @filtersFont;
+        font-weight: 700;
+        margin-left: 2rem; 
+    }
+    .list {
+        display: flex;
+        list-style: none;
+        flex-direction: column;
 
+        .step{
+            .transitions(none, none, auto);
+        }
+    }
+}
 
 //Form
 

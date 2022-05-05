@@ -43,11 +43,11 @@ const RecipeDetail = (props) => {
                 
             </div>
             {recipe.steps
-            ? <div>
-                <h4>steps: </h4>
-                <ol>
-                    {recipe.steps && recipe.steps.map((e, i) => (<li key={i}>{e}</li>))}
-                </ol>
+            ? <div className='stepsDetail'>
+                <h3>How to Make This Recipe: </h3>
+                <div className='list'>
+                    {recipe.steps && recipe.steps.map((e, i) => (<div key={i} className='step'><p>{e}</p></div>))}
+                </div>
             </div>
             :  <div>            
                </div> 
