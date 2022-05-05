@@ -1,38 +1,328 @@
-.App {
-  text-align: center;
+body {
+  background-image: url(./resources/background.jpeg);
+  background-size: cover;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input[type=button] {
+  border-width: 1px;
+  border-radius: 10%;
+  font-family: 'Red Hat Display', sans-serif;
+  margin: 1px 0;
+  font-size: 16px;
+  padding: 0 20px;
+  background-color: rgba(250, 250, 250, 0.473);
+  color: black;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+input[type=button]:hover {
+  background-color: rgba(80, 80, 80, 0.473);
+  cursor: pointer;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.searchBar {
+  display: flex;
+  justify-content: center;
+  border: none;
+  color: #888888;
+  font-size: 15px;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 0 white;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchBar input[type=search] {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 16px;
+  border-radius: 8%;
+  margin: 0 1rem;
+  width: 40%;
+  padding: 10px;
+  border: 1px solid black;
+  box-shadow: 1rem 1rem 80px -2px black;
+  border-width: 0;
+  border-style: solid;
+}
+.searchBar input[type=button] {
+  font-weight: 700;
+}
+.filters {
+  display: flex;
+  justify-content: space-evenly;
+}
+.filters .selects {
+  display: flex;
+}
+.filters select {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 15px;
+  margin: 0 1rem;
+  border-radius: 10%;
+}
+#showFilters {
+  display: block;
+  margin: 2rem auto;
+  padding: 10px ;
+}
+.diets {
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0 8rem;
+}
+.diets .dietText {
+  display: block;
+  margin: auto;
+  text-align: center;
+  border-radius: 20px;
+  width: 7rem;
+  font-family: 'Merriweather', sans-serif;
+  font-size: 12px;
+}
+.diets .dietText:hover {
+  cursor: pointer;
+  color: #854343;
+}
+.diets input[type=button] {
+  margin: 1rem 3rem;
+  border-radius: 10%;
+  border: 0;
+  color: #911818;
+  font-family: 'Acme', sans-serif;
+  font-size: 18px;
+}
+.diets input[type=button]:hover {
+  cursor: pointer;
+  color: #834141;
+  background-color: #ffcece;
+}
+.pressed {
+  display: block;
+  margin: 5px 0;
+  color: #fdf1da;
+  background-color: rgba(80, 80, 80, 0.473);
+  border-radius: 30%;
+  padding: 10px;
+}
+.recipeCards {
+  display: grid;
+  background-color: rgba(80, 80, 80, 0.473);
+  margin: 1rem 2rem;
+  padding: 2rem;
+  border-radius: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+}
+.recipeCard {
+  padding: 4rem 2rem 3rem 2rem;
+  max-width: 80%;
+  height: 20rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+  transition: transform 0.5s;
+}
+.recipeCard:hover {
+  box-shadow: 1rem 1rem 80px -2px black;
+  border-radius: 10%;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.recipeCard h2 {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 20px;
+  color: white;
+}
+.recipeCard p {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 18px;
+}
+.recipeCard img {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 50%;
+  border-radius: 50%;
+}
+.recipeCard p {
+  color: white;
+}
+.h1404 {
+  font-family: 'Red Hat Display', sans-serif;
+  color: white;
+  background-color: rgba(80, 80, 80, 0.473);
+  text-align: center;
+}
+.error404 {
+  display: block;
+  background-image: url(./resources/404.gif);
+  min-width: 20rem;
+  min-height: 15rem;
+  align-items: center;
+  justify-content: space-evenly;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.navbar {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+.navbar h1 {
+  width: 15%;
+  margin: 10px auto;
+  color: black;
+  font-size: 35px;
+  font-family: 'Kaushan Script', cursive;
+  border-radius: 50px;
+}
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: rgba(250, 250, 250, 0.473);
+  margin-bottom: 10px;
+}
+.links .link {
+  display: flex;
+  font-size: 20px;
+  justify-content: space-around;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 700;
+  align-items: center;
+  padding: 10px;
+  margin: 0 10px;
+  color: #3f3f3f;
+}
+.links .link:hover {
+  color: white;
+  background-color: rgba(80, 80, 80, 0.473);
+  border-radius: 10%;
+}
+.paginate ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  margin: 2rem 10rem;
+  border-radius: 50px;
+  background-color: rgba(80, 80, 80, 0.473);
+}
+.paginate ul li {
+  padding: 1rem;
+  border-radius: 20%;
+}
+.paginate ul li a {
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+.paginate ul li:hover {
+  background-color: rgba(73, 73, 73, 0.466);
+  cursor: pointer;
+}
+.currentPage {
+  background-color: rgba(255, 132, 132, 0.692);
+}
+.recipeDetail h1 {
+  font-family: 'Merriweather', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+}
+.recipeDetail .detailCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: rgba(80, 80, 80, 0.473);
+  border-radius: 2%;
+  margin: 10px 20px;
+  padding: 2rem 0;
+  font-family: 'Red Hat Display', sans-serif;
+}
+.recipeDetail .detailCard .presentation {
+  display: block;
+  margin: auto;
+  padding: 1rem;
+  background-color: rgba(255, 251, 196, 0.726);
+  border-radius: 8%;
+  text-align: center;
+  font-family: 'Red Hat Display', sans-serif;
+}
+.recipeDetail .detailCard .presentation h5 {
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  border-radius: 30%;
+  padding: 1rem;
+  text-align: center;
+  margin: 0 10px;
+}
+.recipeDetail .detailCard .presentation .dietsDetail {
+  margin: 0;
+  transition: transform 0.5s;
+}
+.recipeDetail .detailCard .presentation .dietsDetail:hover {
+  box-shadow: none;
+  border-radius: none;
+  transform: scale(1.1);
+  cursor: auto;
+}
+.recipeDetail .detailCard .presentation .dietsDetail p {
+  margin: 0;
+}
+.recipeDetail .detailCard .presentation .scores {
+  transition: transform 0.5s;
+}
+.recipeDetail .detailCard .presentation .scores:hover {
+  box-shadow: none;
+  border-radius: none;
+  transform: scale(1.1);
+  cursor: auto;
+}
+.recipeDetail .detailCard .presentation .scores h4 {
+  margin: 10px 0;
+}
+.recipeDetail .detailCard .presentation .scores .others {
+  display: flex;
+  justify-content: space-evenly;
+}
+.recipeDetail .detailCard .presentation img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 90%;
+  border-radius: 20%;
+  transition: transform 0.5s;
+}
+.recipeDetail .detailCard .presentation img:hover {
+  box-shadow: none;
+  border-radius: 30%;
+  transform: scale(1.1);
+  cursor: auto;
+}
+.recipeDetail .detailCard .description h3 {
+  text-decoration: underline;
+  color: white;
+}
+.recipeDetail .detailCard .description p {
+  margin-right: 2rem;
+  background-color: wheat;
+  border-radius: 2%;
+  padding: 1rem;
+  line-height: 20px;
+  transition: transform 0.5s;
+}
+.recipeDetail .detailCard .description p:hover {
+  box-shadow: none;
+  border-radius: none;
+  transform: scale(1.1);
+  cursor: auto;
+}
+.error {
+  border-color: #ff3a3a;
 }

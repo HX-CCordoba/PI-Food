@@ -1,0 +1,342 @@
+@import "./vairables.less";
+// Home Recipes
+body{
+    background-image: url(./resources/background.jpeg);
+    background-size: cover;
+}
+
+// searchBar
+input[type=button]{
+    border-width: 1px;
+    border-radius: 10%;
+    font-family: @filtersFont;
+    margin: 1px 0;
+    font-size: 16px;
+    padding: 0 20px;
+    background-color: @background-nav;
+    color: black;
+    &:hover {
+        background-color: @background-color;
+        cursor: pointer;
+        color: white;
+    }
+}
+.searchBar {
+    display: flex;
+    justify-content: center;
+    border:none;
+    color:#888888;
+    font-size:15px;
+    height:36px;
+    line-height:36px;
+    margin-bottom: 1rem;
+    text-shadow:1px 1px 0 white;
+    input[type=search]{
+        font-family: @filtersFont;
+        font-size: 16px;
+        border-radius: 8%;
+        margin: 0 1rem;
+        width: 40%;
+        padding: 10px;
+        border: 1px solid black;
+        box-shadow: 1rem 1rem 80px -2px black;
+        border-width: 0;
+        border-style: solid;
+    }
+    input[type=button]{
+        font-weight: 700;
+    }
+}
+
+.filters{
+    display: flex;
+    justify-content: space-evenly;
+    .selects{
+        display: flex;
+    }
+    select{
+        font-family: @filtersFont;  
+        font-size: 15px;
+        margin: 0 1rem;  
+        border-radius: 10%;
+    }
+
+}
+#showFilters{
+    display: block;
+    margin: 2rem auto;
+    padding: 10px ;
+
+}
+
+.diets{
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 0 8rem;
+    .dietText{
+        display: block;
+        margin: auto;
+        text-align: center;
+        border-radius: 20px;
+        width: 7rem;
+        font-family: @dietsFont;
+        font-size: 12px;
+
+        &:hover{
+            cursor: pointer;
+            color: @dietsColor;
+        }
+    }
+    input[type=button]{
+        margin: 1rem 3rem;
+        border-radius: 10%;
+        border-radius: 10%;
+        border: 0;
+        color: rgb(145, 24, 24);
+        font-family: @mainFont;
+        font-size: 18px;
+        &:hover {
+            cursor: pointer;
+            color: rgb(131, 65, 65);
+            background-color: rgb(255, 206, 206);
+        }
+    }
+}
+.pressed{
+    display: block;
+    margin: 5px 0;
+    color: rgb(253, 241, 218);
+    background-color: @background-color;
+    border-radius: 30%;
+    padding: 10px;
+}
+.recipeCards{
+    display: grid;
+    background-color: @background-color;
+    margin: 1rem 2rem;
+    padding: 2rem;
+    border-radius: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+a{
+    text-decoration: none;
+}
+.recipeCard {
+    padding: 4rem 2rem 3rem 2rem;
+    max-width: 80%;
+    height: 20rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    .transitions(1rem 1rem 80px -2px black, 10%, pointer);
+    h2{
+        font-family: @filtersFont;
+        font-size: 20px;
+        color: white;
+    }
+    p{
+        font-family: @filtersFont;
+        font-size: 18px;
+    }
+    img{
+        display: block;
+        margin:auto;
+        max-width: 80%;
+        max-height: 50%;
+        border-radius: 50%;
+    }
+    p{
+        color: white;
+    }
+    
+}
+
+.h1404{
+        font-family: @filtersFont;
+        color: white;
+        background-color: @background-color;
+    text-align: center;
+    
+}
+.error404{
+    display: block;
+    background-image: url(./resources/404.gif);
+    min-width: 20rem;
+    min-height: 15rem;
+    align-items: center;
+    justify-content: space-evenly;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+//NavBar
+.navbar{
+    display: block;
+    margin: auto;
+    text-align: center;
+    h1{
+        width: 15%;
+        margin: 10px auto;
+        color: black;
+        font-size: 35px;
+        font-family: @logoFont;
+        border-radius: 50px;
+
+    }
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;  
+    background-color: @background-nav;
+    margin-bottom: 10px;
+    .link{
+        display: flex;
+        font-size: 20px;
+        justify-content: space-around;
+        font-family: @filtersFont;
+        font-weight: 700;
+        align-items: center;
+        padding: 10px;
+        margin: 0 10px;
+        color: rgb(63, 63, 63);
+        &:hover{
+            color: white;
+            background-color: @background-color;
+            border-radius: 10%;
+        }
+    }
+}
+
+//Paginate 
+
+.paginate {
+    ul{
+        display: flex;
+        list-style-type: none;
+        justify-content: center;
+        margin: 2rem 10rem;
+        border-radius: 50px;
+        background-color: @background-color;
+
+        li{
+            padding: 1rem;
+            border-radius: 20%;
+            a{
+                font-size: 20px;
+                text-decoration: none;
+                color: white;
+            }
+            &:hover{
+            background-color: rgba(73, 73, 73, 0.466);
+            cursor: pointer;
+            }
+        }
+    }
+}
+
+.currentPage {
+    background-color: rgba(255, 132, 132, 0.692);
+}
+
+//Recipe Detail
+
+.recipeDetail {
+    h1{
+        font-family: @dietsFont;
+        font-size: 40px;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .detailCard {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: @background-color;
+        border-radius: 2%;
+        margin: 10px 20px;
+        padding: 2rem 0;
+        font-family: @filtersFont;
+
+        .presentation {
+            display: block;
+            margin: auto;
+            padding: 1rem;
+            background-color: rgba(255, 251, 196, 0.726);
+            border-radius: 8%;
+            text-align: center;
+            font-family: @filtersFont;
+            
+            h5{
+                font-size: 15px;
+                display: flex;
+                justify-content: center;
+                border-radius: 30%;
+                padding: 1rem;
+                text-align: center;
+                margin: 0 10px;
+            }
+            .dietsDetail {
+                margin: 0;
+                .transitions(none, none, auto);
+                p{
+                    margin: 0;
+                }
+            }
+            .scores {
+                .transitions(none, none, auto);
+                h4{
+                    margin: 10px 0;
+                }
+                .others{
+                    display: flex;
+                    justify-content: space-evenly;
+                }
+                
+            }
+            img{
+                display: block;
+                margin: auto;
+                max-width: 100%;
+                max-height: 90%;
+                border-radius: 20%;
+                .transitions(none, 30%, auto);
+            }
+        }
+        .description {
+
+            h3{
+                text-decoration: underline;
+                color: white;
+            }
+            p{
+                margin-right: 2rem;
+                background-color: wheat;
+                border-radius: 2%;
+                padding: 1rem;
+                line-height: 20px;
+                .transitions(none, none, auto);
+            }
+        }
+    }
+}
+
+
+
+//Form
+
+.error {
+    border-color: rgb(255, 58, 58);
+}
+
