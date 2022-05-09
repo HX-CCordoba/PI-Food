@@ -3,12 +3,17 @@
 body{
     background-image: url(./resources/background.jpeg);
     background-size: cover;
+
+}
+input, textarea{
+    resize: none;
+    outline: none;
 }
 
 // searchBar
 input[type=button]{
     border-width: 1px;
-    border-radius: 10%;
+    border-radius: 5px;
     font-family: @filtersFont;
     margin: 1px 0;
     font-size: 16px;
@@ -34,7 +39,7 @@ input[type=button]{
     input[type=search]{
         font-family: @filtersFont;
         font-size: 16px;
-        border-radius: 8%;
+        border-radius: 5px;
         margin: 0 1rem;
         width: 40%;
         padding: 10px;
@@ -58,7 +63,7 @@ input[type=button]{
         font-family: @filtersFont;  
         font-size: 15px;
         margin: 0 1rem;  
-        border-radius: 10%;
+        border-radius: 5px;
     }
 
 }
@@ -90,8 +95,7 @@ input[type=button]{
     }
     input[type=button]{
         margin: 1rem 3rem;
-        border-radius: 10%;
-        border-radius: 10%;
+        border-radius: 15px;
         border: 0;
         color: rgb(145, 24, 24);
         font-family: @mainFont;
@@ -108,7 +112,7 @@ input[type=button]{
     margin: 5px 0;
     color: rgb(253, 241, 218);
     background-color: @background-color;
-    border-radius: 30%;
+    border-radius: 20px;
     padding: 10px;
 }
 .recipeCards{
@@ -127,7 +131,7 @@ a{
     text-decoration: none;
 }
 .recipeCard {
-    padding: 4rem 2rem 3rem 2rem;
+    padding: 2rem 2rem 3.5rem 2rem;
     max-width: 80%;
     height: 20rem;
     align-items: center;
@@ -144,6 +148,7 @@ a{
     p{
         font-family: @filtersFont;
         font-size: 18px;
+        margin: 4px 0;
     }
     img{
         display: block;
@@ -167,24 +172,24 @@ a{
 }
 .error404{
     display: block;
+    margin: 1.5rem auto;
     background-image: url(./resources/404.gif);
     min-width: 20rem;
     min-height: 15rem;
     align-items: center;
-    justify-content: space-evenly;
     background-repeat: no-repeat;
     background-position: center;
-
 }
 
 //NavBar
 .navbar{
-    display: block;
-    margin: auto;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     h1{
+        text-align: center;
         width: 15%;
-        margin: 10px auto;
+        margin: 10px;
         color: black;
         font-size: 35px;
         font-family: @logoFont;
@@ -268,8 +273,9 @@ a{
     .detailCard {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
         background-color: @background-color;
-        border-radius: 2%;
+        border-radius: 5px;
         margin: 10px 20px;
         padding: 2rem 0;
         font-family: @filtersFont;
@@ -279,7 +285,7 @@ a{
             margin: auto;
             padding: 1rem 2rem;
             background-color: rgba(255, 251, 196, 0.726);
-            border-radius: 8%;
+            border-radius: 15px;
             text-align: center;
             font-family: @filtersFont;
             
@@ -293,11 +299,18 @@ a{
                 margin: 0 10px;
             }
             .dietsDetail {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 margin: 0;
                 .transitions(none, none, auto);
+                
                 p{
                     margin: 0;
                 }
+            }
+            .muchDiets{
+                max-width: fit-content;
             }
             .scores {
                 .transitions(none, none, auto);
@@ -313,9 +326,9 @@ a{
             img{
                 display: block;
                 margin: auto;
-                max-width: 100%;
+                max-width: 18rem;
                 max-height: 90%;
-                border-radius: 20%;
+                border-radius: 20px;
                 .transitions(none, none, auto);
             }
         }
@@ -328,7 +341,7 @@ a{
             p{
                 margin-right: 2rem;
                 background-color: wheat;
-                border-radius: 2%;
+                border-radius: 10px;
                 padding: 1rem;
                 line-height: 20px;
                 .transitions(none, none, auto);
@@ -338,29 +351,294 @@ a{
 }
 
 .stepsDetail {
-    margin: 1rem 4rem;
+    display: block;
+    margin: 1rem 20%;
     background-color: rgba(240, 248, 255, 0.815);
-    border-radius: 10%;
+    border-radius: 5px;
     padding: 1rem;
+    font-family: @filtersFont;
+
     h3 {
-        font-family: @filtersFont;
         font-weight: 700;
         margin-left: 2rem; 
     }
     .list {
-        display: flex;
+        display: block;
+        margin: auto;
         list-style: none;
-        flex-direction: column;
 
         .step{
+            justify-content: center;
             .transitions(none, none, auto);
+            padding: 0 2rem;
+            p{
+                margin: 10px 0;
+            }
         }
     }
 }
 
 //Form
 
-.error {
-    border-color: rgb(255, 58, 58);
+.form {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 0.5rem;
+    font-family: @filtersFont;
+    margin: 10px 2rem;
+    @media (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .formInputs {
+            display: grid;
+            row-gap: 1rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 20px;
+            column-gap: 1rem;
+            background-color: rgba(240, 248, 255, 0.87);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 1rem 1rem 80px -2px black;
+            input {
+                padding: 3px;
+                border-radius: 5px;
+                border: 1px solid gray;
+                resize: none;
+                outline: none;
+            }
+            .labels {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin-bottom: 1rem;
+                align-items: center;
+                column-gap: 1rem;
+                row-gap: 0.5rem;
+            }
+            .inputDiets {
+                margin-top: 10px;
+            }
+            .chooseDiets {
+                font-family: @filtersFont;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                align-items: center;
+                column-gap: 1rem;
+                row-gap: 1rem;
+                p{
+                    margin: 2px 0;
+                }
+                .diet{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+            .inputDescription {
+                font-family: @filtersFont;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                h4 {
+                    margin: 10px 0 5px 0;
+                    font-size: 18px;
+                    align-items: flex-start;
+                }
+                textarea {
+                    min-width: 80%;
+                    min-height: 120px;
+                    border: 1px solid gray;
+                    border-radius: 10px;
+                    padding: 0.5rem;
+                  }
+            }
+            
+    }
+    .formRecipe {
+        display: grid;
+        .cardRow {
+            display: block;
+            margin: auto 2rem !important;
+            
+        }
+        .detailDescription {
+            margin: auto 0 !important;
+            display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+            .description{
+                
+                p {
+                    justify-content: space-around;
+                    margin: 1rem;
+                }
+                
+            }   
+        }
+        .detailColumn {
+            display: flex !important;
+            flex-direction: column;
+            h3 {
+                max-height: 80%;
+                margin: none;
+                
+            }
+        }
+        .cardForm{
+            h3{
+                height: 75px;
+            }
+            .detailColumn {
+                background-color: unset !important;
+            }
+        }
+    }
+    
+    .submit{
+        display: block;
+        font-family: @filtersFont;
+        width: 20%;
+        height: 70%;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        margin: 2rem auto 2rem auto;
+        font-size: 20px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        padding: 0 20px;
+        background-color: @background-color;
+        color: white;
+        &:hover {
+            background-color: @background-nav;
+            color: black;
+            cursor: pointer;
+        }
+    }
 }
 
+.createRecipe {
+    text-align: center;
+    h1{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.dietPressed {
+    display: block;
+    margin: auto;
+    background-color: rgba(255, 235, 146, 0.726);
+    border-radius: 20px;
+    padding: 1px;
+}
+.error {
+    border: 2px solid #fc6060e3 !important;
+}
+
+
+.landing {
+    h1{
+        margin: 1rem 8rem;
+    }
+    display: block;
+    margin: auto;
+    font-family: @mainFont;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.459);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    color: rgb(247, 255, 255);
+    font-size: 35px;
+    button {
+        display: block;
+        margin: auto;
+        padding: 1rem;
+        font-family: @filtersFont;
+        font-size: 20px;
+        border-radius: 10px;
+        background-color: rgb(247, 255, 255);
+        color: black;
+        &:hover {
+            background-color: @background-color;
+            cursor: pointer;
+            color: white;
+        }
+        
+    }
+    img {
+        border-radius: 20px;
+        max-height: 20rem;
+    }
+}
+
+//About Me
+.aboutMe {
+    background-color: rgba(0, 0, 0, 0.678);
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 5rem;
+    border-radius: 20px;
+    color: aliceblue;
+    .container{
+        h1{ 
+            font-size:50px;
+            font-family: 'Nanum Myeongjo', serif;
+            margin: 1rem 2rem;
+            border-bottom: 1px solid white;
+        }
+        .infoMe {
+            p{
+                margin: 1rem 5rem;
+                padding-bottom: 1rem;
+                font-size: 20px;
+                text-align: justify;
+                line-height: 40px;
+                border-bottom: 1px solid white;
+            }
+            
+        }
+        .linksInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .miniInfo {
+                text-decoration: none;
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    height: 2rem;
+                    width: 2rem;
+                    margin: 0 1rem;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                p{
+                    margin: 1rem;
+                    font-size: 17px;
+                    font-family: @filtersFont;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.imgLoading {
+    display: block;
+    margin: 5rem auto;
+    border-radius: 40%;
+
+}

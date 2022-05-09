@@ -97,26 +97,46 @@ const rootReducer = (state = initialState, action) => {
         dietsSelected: [],
       };
     case SORT_BY_NAME:
-      const sortRecipes =
-        action.payload === "a-z"
-          ? state.recipes.sort((a, b) => {
-              if (a.title > b.title) {
-                return 1;
-              }
-              if (b.title > a.title) {
-                return -1;
-              }
-              return 0;
-            })
-          : state.recipes.sort((a, b) => {
-              if (a.title > b.title) {
-                return -1;
-              }
-              if (b.title > a.title) {
-                return 1;
-              }
-              return 0;
-            });
+      let [value, id] = action.payload;
+      console.log("reducer");
+      console.log(value, id);
+      function sort(value, prop) {
+        const sortRecipes =
+          value === "higher"
+            ? state.recipes.sort((a, b) => {
+                console.log("entre a higher");
+                if (a.spoonacularScore && prop !== "title")
+                  prop = "spoonacularScore";
+                if (b.spoonacularScore && prop !== "title")
+                  prop = "spoonacularScore";
+                console.log(state.recipes);
+                if (a[prop] > b[prop]) {
+                  return 1;
+                }
+                if (b[prop] > a[prop]) {
+                  return -1;
+                }
+                return 0;
+              })
+            : state.recipes.sort((a, b) => {
+                console.log("entre a lower");
+                if (a.spoonacularScore && prop !== "title")
+                  prop = "spoonacularScore";
+                if (b.spoonacularScore && prop !== "title")
+                  prop = "spoonacularScore";
+                if (a[prop] > b[prop]) {
+                  return -1;
+                }
+                if (b[prop] > a[prop]) {
+                  return 1;
+                }
+                return 0;
+              });
+        return sortRecipes;
+      }
+
+      const sortRecipes = sort(value, id);
+
       return {
         ...state,
         recipes: sortRecipes,

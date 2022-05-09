@@ -9,7 +9,7 @@ const getApi = async () => {
   );
   const apiRecipes = apiInfo.data?.results.map((recipe) => {
     function removeTags(str) {
-      str = str.toString();
+      str = str?.toString();
 
       return str.replace(/(<([^>]+)>)/gi, "");
     }

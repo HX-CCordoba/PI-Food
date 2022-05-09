@@ -6,10 +6,7 @@ import { getAllRecipes } from '../../redux/actions';
 function NavBar() {
   const dispatch = useDispatch();
 
-  function handleAllRecipes(e){
-    e.preventDefault()
-    dispatch(getAllRecipes())
-  }
+
   return (
     <nav className="navbar">
       <Link to='/home'>
@@ -19,15 +16,15 @@ function NavBar() {
         <Link to='/formRecipe' className='link'>
           <span  >CREATE</span>
         </Link>
-        <Link to='/home' className='link' onClick={handleAllRecipes}>
+        <Link to='/home' className='link'>
           <span >HOME</span>
         </Link>
-        <Link to='/home' className='link'>
+        <Link to='/aboutMe' className='link'>
           <span >ABOUT ME</span>
         </Link>
       </div>
-      
-        
+
+
     </nav>
   );
 };

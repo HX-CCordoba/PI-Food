@@ -16,11 +16,13 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     summary: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(800),
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
+      defaultValue:
+        "https://images.food52.com/wulM9ARxwbCaQEeW0R6fmjisGZY=/fit-in/1200x1200/2d6bdab3-4206-4c3d-ac52-e428177251bc--default-recipe.jpg",
     },
     score: {
       type: DataTypes.FLOAT,

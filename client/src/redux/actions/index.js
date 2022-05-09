@@ -42,7 +42,7 @@ export const getByName = (title) => {
   return async function (dispatch) {
     if (title.length) {
       const response = await axios
-        .get(`http://localhost:3001/recipes?title=${title}`)
+        .get(`http://localhost:3001/recipes?title=${encodeURIComponent(title)}`)
         .then((res) => dispatch({ type: GET_BY_TITLE, payload: res.data }))
 
         .catch((err) => console.log(err));
@@ -51,11 +51,6 @@ export const getByName = (title) => {
 };
 
 export const createRecipe = (recipe) => {
-  let newSteps = [];
-  recipe.steps.forEach((e) => {
-    newSteps.push(e.step);
-  });
-  recipe.steps = newSteps;
   return async function () {
     axios
       .post("http://localhost:3001/recipe", recipe)
@@ -63,10 +58,12 @@ export const createRecipe = (recipe) => {
   };
 };
 
-export function sortRecipes(payload) {
+export function sortRecipes(data) {
+  console.log("actions");
+  console.log(data);
   return {
     type: SORT_BY_NAME,
-    payload,
+    payload: data,
   };
 }
 
