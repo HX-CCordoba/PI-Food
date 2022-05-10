@@ -14,10 +14,9 @@ router.use(`/recipes`, recipes);
 //Create a new recipe
 router.post("/recipe", async (req, res, next) => {
   try {
-    const { title, summary, score, healthScore, steps, image, diets } =
+    const { title, summary, score, healthScore, steps, image, dietTypes } =
       req.body;
-
-    const recipe = await Recipe.create({
+    var recipe = await Recipe.create({
       title,
       summary,
       score,
@@ -25,8 +24,8 @@ router.post("/recipe", async (req, res, next) => {
       image,
       steps,
     });
-    diets &&
-      diets.forEach(async (d) => {
+    dietTypes &&
+      dietTypes.forEach(async (d) => {
         const diet = await DietType.findOne({
           where: { name: d },
         });

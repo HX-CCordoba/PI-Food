@@ -1,16 +1,26 @@
 import NavBar from '../NavBar/NavBar';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { removeRecipeDetail } from '../../redux/actions';
+import Footer from '../Footer/Footer';
 
-function showMail() {
-    window.open("https://mail.google.com/mail/?view=cm&fs=1&to=cd.cordoba13@gmail.com")
-}
-function showLinkedin() {
-    window.open("https://www.linkedin.com/in/christian-david-córdoba-carlosama-435b65235/")
-}
-function showGithub() {
-    window.open("https://github.com/CdCordoba")
-}
 
 function AboutMe() {
+
+    function showMail() {
+        window.open("https://mail.google.com/mail/?view=cm&fs=1&to=cd.cordoba13@gmail.com")
+    }
+    function showLinkedin() {
+        window.open("https://www.linkedin.com/in/christian-david-córdoba-carlosama-435b65235/")
+    }
+    function showGithub() {
+        window.open("https://github.com/CdCordoba")
+    }
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(removeRecipeDetail())
+    }, [dispatch])
     return (
         <div>
             <NavBar></NavBar>
@@ -46,6 +56,7 @@ function AboutMe() {
                 </div>
 
             </div>
+            <Footer />
         </div>
     )
 }

@@ -3,7 +3,6 @@
 body{
     background-image: url(./resources/background.jpeg);
     background-size: cover;
-
 }
 input, textarea{
     resize: none;
@@ -590,7 +589,7 @@ a{
     .container{
         h1{ 
             font-size:50px;
-            font-family: 'Nanum Myeongjo', serif;
+            font-family: @aboutMeFont;
             margin: 1rem 2rem;
             border-bottom: 1px solid white;
         }
@@ -641,4 +640,19 @@ a{
     margin: 5rem auto;
     border-radius: 40%;
 
+}
+
+//Footer
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: @background-color;
+    align-items: center;
+    margin-top: 2rem;
+    p {
+        font-family: @filtersFont;
+        font-size: 18px;
+    }
 }

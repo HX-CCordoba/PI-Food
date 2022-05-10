@@ -609,3 +609,15 @@ a {
   margin: 5rem auto;
   border-radius: 40%;
 }
+.footer {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: rgba(80, 80, 80, 0.473);
+  align-items: center;
+  margin-top: 2rem;
+}
+.footer p {
+  font-family: 'Red Hat Display', sans-serif;
+  font-size: 18px;
+}

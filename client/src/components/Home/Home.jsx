@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getAllRecipes, getDiets, getRecipesByCreated, getRecipesByDiet, removeFilters, sortRecipes } from '../../redux/actions';
+import { getAllRecipes, getDiets, getRecipesByCreated, getRecipesByDiet, removeFilters, sortRecipes, removeRecipeDetail } from '../../redux/actions';
 import RecipeCard from '../RecipeCard/RecipeCard'
 import NavBar from '../NavBar/NavBar';
 import Paginate from './Paginate';
 import SearchBar from './SearchBar';
-
+import Footer from '../Footer/Footer';
 const Home = () => {
 
   const recipes = useSelector(state => state.recipes);
@@ -37,8 +36,16 @@ const Home = () => {
   useEffect(() => {
     dispatch(getAllRecipes());
     dispatch(getDiets());
-
+    dispatch(removeRecipeDetail())
   }, [dispatch])
+
+  if (errors.reset) {
+    allDiets.forEach(e => {
+      let diet = document.getElementById(e.name);
+      diet.classList.remove('pressed');
+    });
+    dispatch(removeFilters("reset"));
+  }
 
   function handleShowAllRecipes(e) {
     e.preventDefault();
@@ -123,48 +130,52 @@ const Home = () => {
         </div>
       </div>
       {
-        errors.recipe || errors.created || errors.search
-          ?
-          <div>
-            {errors.recipe &&
-              <h1 className='h1404'>Oops!... We couldn't Find Recipes With Those Types of Diets</h1>
-            }
-            {errors.created &&
-              <h1 className='h1404'>Oops!... You Don't Have Recipes Created</h1>
-            }
-            {errors.search &&
-              <div>
-                <h1 className='h1404'>Oops!... We couldn't Find Recipes With That Name</h1>
-                <div className='searchBar'>
-                  <input type="button" value="Show All Recipes" onClick={e => handleShowAllRecipes(e)} />
-                </div>
-              </div>
-
-            }
-            <div className='error404'></div>
-          </div>
-          : currentRecipe.length ?
+        currentRecipe.length ?
+          errors.recipe || errors.created || errors.search
+            ?
             <div>
+              {errors.recipe &&
+                <h1 className='h1404'>Oops!... We couldn't Find Recipes With Those Types of Diets</h1>
+              }
+              {errors.created &&
+                <h1 className='h1404'>Oops!... You Don't Have Recipes Created</h1>
+              }
+              {errors.search &&
+                <div>
+                  <h1 className='h1404'>Oops!... We couldn't Find Recipes With That Name</h1>
+                  <div className='searchBar'>
+                    <input type="button" value="Show All Recipes" onClick={e => handleShowAllRecipes(e)} />
+                  </div>
+                </div>
 
-              <div className='recipeCards'>
-                {currentRecipe?.map(recipe => {
-                  return <RecipeCard
-                    key={recipe.id}
-                    id={recipe.id}
-                    title={recipe.title}
-                    image={recipe.image}
-                    diets={recipe.dietTypes ? recipe.dietTypes.map(e => e.name) : recipe.diets}
-                    score={recipe.score ? recipe.score : recipe.spoonacularScore}
-                    healthScore={recipe.healthScore}
-                  />
-                })}
-              </div>
-              {recipes.length > 9 && <Paginate recipePerPage={recipePerPage} totalRecipes={recipes.length} paginat={paginat} />}
+              }
+              <div className='error404'></div>
             </div>
-            :
-            <img className='imgLoading' src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif" alt="" />
+            : currentRecipe.length ?
+              <div>
+
+                <div className='recipeCards'>
+                  {currentRecipe?.map(recipe => {
+                    return <RecipeCard
+                      key={recipe.id}
+                      id={recipe.id}
+                      title={recipe.title}
+                      image={recipe.image}
+                      diets={recipe.dietTypes ? recipe.dietTypes.map(e => e.name) : recipe.diets}
+                      score={recipe.score ? recipe.score : recipe.spoonacularScore}
+                      healthScore={recipe.healthScore}
+                    />
+                  })}
+                </div>
+                {recipes.length > 9 && <Paginate recipePerPage={recipePerPage} totalRecipes={recipes.length} paginat={paginat} />}
+              </div>
+              :
+              <img className='imgLoading' src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif" alt="" />
+          :
+          <img className='imgLoading' src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif" alt="" />
 
       }
+      <Footer />
     </div>)
 };
 

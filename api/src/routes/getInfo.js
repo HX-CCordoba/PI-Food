@@ -8,16 +8,11 @@ const getApi = async () => {
     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
   );
   const apiRecipes = apiInfo.data?.results.map((recipe) => {
-    function removeTags(str) {
-      str = str?.toString();
-
-      return str.replace(/(<([^>]+)>)/gi, "");
-    }
     return {
       id: recipe.id,
       title: recipe.title,
       image: recipe.image,
-      summary: removeTags(recipe.summary),
+      summary: recipe.summary.replace(/(<([^>]+)>)/gi, ""),
       spoonacularScore: recipe.spoonacularScore,
       healthScore: recipe.healthScore,
       diets: recipe.diets,

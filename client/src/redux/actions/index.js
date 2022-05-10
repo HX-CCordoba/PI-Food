@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const GET_ALL_RECIPES = "GET_ALL_RECIPES";
 export const GET_RECIPE_DETAIL = "GET_RECIPE_DETAIL";
+export const REMOVE_RECIPE_DETAIL = "REMOVE_RECIPE_DETAIL";
 export const GET_DIETS = "GET_DIETS";
 export const GET_BY_TITLE = "GET_BY_TITLE";
 export const FILTER_BY_DIET = "FILTER_BY_DIET";
@@ -29,6 +30,9 @@ export const getRecipeDetail = (idRecipe) => {
   };
 };
 
+export const removeRecipeDetail = () => {
+  return { type: REMOVE_RECIPE_DETAIL };
+};
 export const getDiets = () => {
   return async (dispatch) => {
     const response = await axios

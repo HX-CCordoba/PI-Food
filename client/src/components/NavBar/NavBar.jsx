@@ -1,14 +1,9 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getAllRecipes } from '../../redux/actions';
 
 function NavBar() {
-  const dispatch = useDispatch();
-
-
   return (
-    <nav className="navbar">
+    <nav className="navbar" title="navbar">
       <Link to='/home'>
         <h1>HenryFood</h1>
       </Link>

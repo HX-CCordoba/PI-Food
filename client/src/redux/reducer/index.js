@@ -8,6 +8,7 @@ import {
   FILTER_BY_CREATED,
   REMOVE_FILTERS,
   SORT_BY_NAME,
+  REMOVE_RECIPE_DETAIL,
 } from "../actions";
 
 const initialState = {
@@ -33,6 +34,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         recipeDetail: action.payload[0],
+      };
+    case REMOVE_RECIPE_DETAIL:
+      return {
+        ...state,
+        recipeDetail: {},
       };
     case GET_DIETS:
       return {
