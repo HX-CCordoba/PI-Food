@@ -14,8 +14,10 @@ router.use(`/recipes`, recipes);
 //Create a new recipe
 router.post("/recipe", async (req, res, next) => {
   try {
-    const { title, summary, score, healthScore, steps, image, dietTypes } =
+    let { title, summary, score, healthScore, steps, image, dietTypes } =
       req.body;
+    let newTitle = title.charAt(0).toUpperCase() + title.slice(1);
+    title = newTitle;
     var recipe = await Recipe.create({
       title,
       summary,
@@ -32,7 +34,7 @@ router.post("/recipe", async (req, res, next) => {
         recipe.addDietType(diet);
       });
 
-    res.status(201).send("Created");
+    res.status(201).send(recipe);
   } catch (error) {
     next(error);
   }

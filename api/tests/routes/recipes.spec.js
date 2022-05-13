@@ -8,7 +8,6 @@ const agent = session(app);
 const recipe = {
   title: "Milanesa a la napolitana",
   summary: "Churrasco apanado",
-  steps: ["Batir huevos", "Apanar churrasco"],
 };
 
 describe("Recipe routes", () => {

@@ -25,7 +25,7 @@ const getApi = async () => {
   return apiRecipes;
 };
 const getDataBase = async () => {
-  return await Recipe.findAll({
+  let recipe = await Recipe.findAll({
     include: {
       model: DietType,
       attributes: ["name"],
@@ -34,6 +34,8 @@ const getDataBase = async () => {
       },
     },
   });
+  console.log(recipe);
+  return recipe;
 };
 
 const getAllRecipes = async () => {
@@ -43,4 +45,5 @@ const getAllRecipes = async () => {
 
 module.exports = {
   getAllRecipes,
+  getApi,
 };

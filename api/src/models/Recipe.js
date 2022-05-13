@@ -14,6 +14,7 @@ module.exports = (sequelize) => {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     summary: {
       type: DataTypes.STRING(800),
@@ -34,11 +35,10 @@ module.exports = (sequelize) => {
     },
     steps: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+      allowNull: true,
     },
     createdDB: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
       defaultValue: true,
     },
   });

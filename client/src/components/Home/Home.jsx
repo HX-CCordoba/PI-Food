@@ -34,11 +34,12 @@ const Home = () => {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getAllRecipes());
-    dispatch(getDiets());
+    if (!recipes.length) dispatch(getAllRecipes());
+    if (!allDiets.length) dispatch(getDiets());
     dispatch(removeRecipeDetail())
   }, [dispatch])
-
+  let allRecipes = useSelector(state => state.allRecipes)
+  console.log(allRecipes)
   if (errors.reset) {
     allDiets.forEach(e => {
       let diet = document.getElementById(e.name);
@@ -93,6 +94,7 @@ const Home = () => {
     setCurrentPage(1);
 
   }
+  console.log(currentRecipe)
   return (
     <div>
       <NavBar></NavBar>
@@ -125,7 +127,6 @@ const Home = () => {
                 <h3 id={e.name} onClick={e => handleFilerByDiet(e)}>{e.name.toUpperCase()}</h3>
               </div>
             ))}
-          {showDiets !== 'Show' && <input type="button" value="Reset Filters" id="reset" className='resetFilters' onClick={e => handleFilerByDiet(e)} />}
 
         </div>
       </div>
@@ -164,6 +165,7 @@ const Home = () => {
                       diets={recipe.dietTypes ? recipe.dietTypes.map(e => e.name) : recipe.diets}
                       score={recipe.score ? recipe.score : recipe.spoonacularScore}
                       healthScore={recipe.healthScore}
+                      createdDB={recipe.createdDB}
                     />
                   })}
                 </div>

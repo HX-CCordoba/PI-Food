@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipeDetail } from '../../redux/actions';
 import NavBar from '../NavBar/NavBar';
+import { Link } from 'react-router-dom';
 
 const RecipeDetail = (props) => {
 
@@ -13,7 +14,6 @@ const RecipeDetail = (props) => {
     useEffect(() => {
         dispatch(getRecipeDetail(idRecipe))
     }, [dispatch, idRecipe])
-
     const score = recipe.score ? recipe.score : recipe.spoonacularScore;
     const diets = recipe.dietTypes ? recipe.dietTypes.map(e => e.name) : recipe.diets;
     return (
@@ -62,7 +62,9 @@ const RecipeDetail = (props) => {
                 <img className='imgLoading' src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif" alt="" />
 
             }
-
+            <Link to={`/updateRecipe/${recipe.id}`}>
+                <button>EDITAR</button>
+            </Link>
         </div>
 
     )

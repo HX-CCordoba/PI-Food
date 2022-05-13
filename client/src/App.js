@@ -6,6 +6,7 @@ import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
 import FormRecipe from "./components/CreateRecipe/CreateRecipe";
 import Landing from "./components/Landing/Landing";
 import AboutMe from "./components/AboutMe/AboutMe";
+import UpdateRecipe from "./components/UpdateRecipe/UpdateRecipe";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path={"/Home"} component={Home} />
       <Route path={"/recipes/:id"} component={RecipeDetail} />
       <Route path={"/formRecipe"} component={FormRecipe} />
+      <Route path={"/updateRecipe/:id"} component={UpdateRecipe} />
       <Route path={"/aboutMe"} component={AboutMe} />
     </>
   );
