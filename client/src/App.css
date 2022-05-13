@@ -632,6 +632,38 @@ a {
   margin: 5rem auto;
   border-radius: 40%;
 }
+.removeDiets {
+  margin: 1rem 3rem;
+  border-radius: 15px;
+  border: 0;
+  color: #911818;
+  font-family: 'Acme', sans-serif;
+  font-size: 18px;
+}
+.removeDiets:hover {
+  cursor: pointer;
+  color: #834141;
+  background-color: #ffcece;
+}
+.edit {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1rem;
+  align-items: center;
+  font-size: 18px;
+  font-family: 'Red Hat Display', sans-serif;
+}
+.editButton {
+  margin-left: 1rem;
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  width: 30px;
+}
+.editButton:hover {
+  background-color: rgba(80, 80, 80, 0.473);
+  cursor: pointer;
+}
 .footer {
   display: flex;
   justify-content: space-around;

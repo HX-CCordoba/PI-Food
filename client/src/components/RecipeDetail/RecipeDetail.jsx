@@ -23,6 +23,14 @@ const RecipeDetail = (props) => {
                 <div className='recipeDetail'>
 
                     <h1>{recipe.title}</h1>
+                    <div className='edit' >
+                        <span className='editText'>Edit Recipe</span>
+
+                        <Link to={`/updateRecipe/${recipe.id}`}>
+                            <img className='editButton' src="https://cdn-icons-png.flaticon.com/512/84/84380.png" alt="" />
+                        </Link>
+
+                    </div>
                     <div className='detailCard'>
                         <div className='presentation'>
                             <div className='scores'>
@@ -62,9 +70,7 @@ const RecipeDetail = (props) => {
                 <img className='imgLoading' src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif" alt="" />
 
             }
-            <Link to={`/updateRecipe/${recipe.id}`}>
-                <button>EDITAR</button>
-            </Link>
+
         </div>
 
     )

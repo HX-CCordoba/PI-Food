@@ -20,7 +20,7 @@ const FormRecipe = (props) => {
         score,
         healthScore,
         steps,
-        dietTypes: [],
+        dietTypes,
     })
     let [errors, setErrors] = React.useState({})
 
@@ -46,7 +46,10 @@ const FormRecipe = (props) => {
     }, [dispatch, input]);
 
     function handleDeleted() {
-        dietTypes = [];
+        setInput({
+            ...input,
+            dietTypes: []
+        })
         setDeleted(true);
     }
     const handlerChooseDiet = (e, i) => {
@@ -131,11 +134,10 @@ const FormRecipe = (props) => {
                                                 return (
                                                     <div>
                                                         <div key={diet.id} className={`diet${i} diet`}>
-                                                            <p id={diet.name} onClick={(e) => handlerChooseDiet(e, i)}>{diet.name}</p>
+                                                            <p id={diet.name} className={input.dietTypes.includes(diet.name) ? "dietPressed" : ''} onClick={(e) => handlerChooseDiet(e, i)}>{diet.name}</p>
                                                         </div>
                                                     </div>)
                                             })}
-                                            <button onClick={handleDeleted}>Remove previous diets</button>
 
                                         </div>
                                     </div>
@@ -185,7 +187,7 @@ const FormRecipe = (props) => {
                                             }} alt={input.title} />
                                             <div className={`${input.dietTypes?.length >= 3 ? "muchDiets" : null} dietsDetail `}>
                                                 <h5>Diets: </h5>
-                                                <p>{input.dietTypes.length ? input.dietTypes?.join(", ").toUpperCase() : dietTypes?.join(", ").toUpperCase()}</p>
+                                                <p>{input.dietTypes?.join(", ").toUpperCase()}</p>
                                             </div>
 
                                         </div>
