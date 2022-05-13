@@ -110,7 +110,6 @@ describe("Recipe model", () => {
             image: 20,
           });
         } catch (e) {
-          console.log(e.message);
           expect(e.message).to.not.be.an("null");
         }
       });
@@ -145,7 +144,6 @@ describe("Recipe model", () => {
             score: "20",
           });
         } catch (e) {
-          console.log(e.message);
           expect(e.message).to.not.be.an("null");
         }
       });
@@ -180,7 +178,6 @@ describe("Recipe model", () => {
             healthScore: "20",
           });
         } catch (e) {
-          console.log(e.message);
           expect(e.message).to.not.be.an("null");
         }
       });

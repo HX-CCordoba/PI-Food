@@ -32,7 +32,6 @@ const FormRecipe = () => {
       if (/[`~,.<>;':"/[\]|{}()=_+-?¡!¿*{}´´¨´&%$#°]/.test(input.title)) errors.title = 'Name not allowed especials characters or numbers';
       if (input.summary === "") errors.summary = 'A description is required';
       if (allTitles.includes(input.title?.toLowerCase())) errors.title = 'This recipe already exists';
-      console.log(errors)
       return errors
    }
    const dispatch = useDispatch();
@@ -69,17 +68,7 @@ const FormRecipe = () => {
             [name]: value
          })
          setErrors(validate({ ...input, [name]: value }))
-         // setErrors({
-         //    ...errors,
-         //    [name]: input[name].trim().length === 0 ? true : false,
-         //    repeat: allTitles.includes(input.title.toLowerCase()) ? true : false,
-         // })
-         // if (/[`~,.<>;':"/[\]|{}()=_+-?¡!¿*{}´´¨´&%$#°]/.test(input.title)) setErrors({ title: true })
-
       }
-      //Errors
-      console.log(errors)
-      // console.log(errors)
    }
 
    function handleSubmit(e) {

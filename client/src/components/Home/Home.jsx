@@ -38,8 +38,6 @@ const Home = () => {
     if (!allDiets.length) dispatch(getDiets());
     dispatch(removeRecipeDetail())
   }, [dispatch])
-  let allRecipes = useSelector(state => state.allRecipes)
-  console.log(allRecipes)
   if (errors.reset) {
     allDiets.forEach(e => {
       let diet = document.getElementById(e.name);
@@ -94,7 +92,6 @@ const Home = () => {
     setCurrentPage(1);
 
   }
-  console.log(currentRecipe)
   return (
     <div>
       <NavBar></NavBar>

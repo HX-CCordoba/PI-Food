@@ -74,13 +74,11 @@ router.put("/update/:id", async (req, res, next) => {
       );
       if (dietTypes.length) {
         let arr = [];
-        console.log(dietTypes);
         var recip = await Recipe.findOne({
           where: {
             id: id,
           },
         });
-        console.log(recip);
         for (let i = 0; i < dietTypes.length; i++) {
           const diet = await DietType.findOne({
             where: { name: dietTypes[i] },

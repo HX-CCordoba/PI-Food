@@ -11,7 +11,6 @@ const FormRecipe = (props) => {
     const { id } = useParams();
     const recipe = useSelector(state => state.recipeDetail)
     let [deleted, setDeleted] = React.useState(false);
-    console.log(recipe)
     let { title, image, summary, score, healthScore, steps, dietTypes } = recipe;
     dietTypes = dietTypes?.map(e => e.name);
     let [input, setInput] = React.useState({
@@ -23,7 +22,6 @@ const FormRecipe = (props) => {
         steps,
         dietTypes: [],
     })
-    console.log(input)
     let [errors, setErrors] = React.useState({})
 
     const src = "https://images.food52.com/wulM9ARxwbCaQEeW0R6fmjisGZY=/fit-in/1200x1200/2d6bdab3-4206-4c3d-ac52-e428177251bc--default-recipe.jpg";
@@ -79,17 +77,7 @@ const FormRecipe = (props) => {
                 [name]: value
             })
             setErrors(validate({ ...input, [name]: value }))
-            // setErrors({
-            //    ...errors,
-            //    [name]: input[name].trim().length === 0 ? true : false,
-            //    repeat: allTitles.includes(input.title.toLowerCase()) ? true : false,
-            // })
-            // if (/[`~,.<>;':"/[\]|{}()=_+-?¡!¿*{}´´¨´&%$#°]/.test(input.title)) setErrors({ title: true })
-
         }
-        //Errors
-        console.log(errors)
-        // console.log(errors)
     }
 
     function handleSubmit(e) {
