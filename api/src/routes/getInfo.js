@@ -34,7 +34,6 @@ const getDataBase = async () => {
       },
     },
   });
-  console.log(recipe);
   return recipe;
 };
 
